@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="manifest" href="manifest.json" />
+
+		<style>
+			.background-dark {
+				background-color: #262626;
+			}
+
+			.center {
+				display: flex;
+				justify-content: center;
+			}
+
+			.margin-top {
+				margin-top: 100px;
+			}
+
+			.timer {
+				font-size: 60px;
+				color: white;
+				font-family: 'Roboto', sans-serif;
+			}
+			.text {
+				color: white;
+				font-size: 30px;
+			}
+		</style>
+
+		<script type:"text/javascript" src="script.js"></script>
+	</head>
+
+	<body class="background-dark">
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+				>&times;</a
+			>
+			<a href="#">About</a>
+			<a href="#">Services</a>
+			<a href="#">Clients</a>
+			<a href="#">Contact</a>
+		</div>
+
+		<div id="main">
+			<div id="eieruhr">
+				<div>
+					<img onclick="openNav()" src="img/menu.png" />
+				</div>
+
+				<div class="center margin-top">
+					<img src="img/egg.png" />
+				</div>
+
+				<div class="center margin-top timer" id="timer">05 : 00</div>
+
+				<div class="center margin-top timer">
+					<img onclick=<script type="text/javascript">startTimer();</script> src="img/button.png" />
+				</div>
+
+				<div class="text">
+					<h1>Hello World</h1>
+				</div>
+			</div>
+
+			<div id="speedcalculator"></div>
+		</div>
+	</body>
+</html>
