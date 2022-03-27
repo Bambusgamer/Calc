@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- <meta http-equiv="refresh" content="1" /> -->
+		<style>
+			body {
+				background: #f06d06;
+				width: 100%;
+			}
+			#exit {
+				width: 75px;
+				height: 30px;
+				text-align: center;
+				position: absolute;
+				top: 8px;
+				right: 8px;
+				font-weight: bold;
+				font-size: 18px;
+				background-color: rgb(134, 142, 145);
+				color: aliceblue;
+				border-radius: 7px;
+				border: none;
+				cursor: pointer;
+			}
+			#buttonrow {
+				/* text-align: center; */
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				display: block;
+			}
+			#button {
+				margin: 5%;
+				background-color: #3f858a;
+				color: wheat;
+				width: 100%;
+				height: 75px;
+				border-radius: 7px;
+				border: none;
+				cursor: pointer;
+			}
+			#inputrow {
+				height: 100%;
+				width: 100%;
+			}
+			#boolean {
+				display: block;
+			}
+			#optional {
+				display: none;
+			}
+			#required {
+				display: none;
+			}
+			#input_gui {
+				margin: 5%;
+				background-color: #3f858a;
+				color: wheat;
+				width: 100%;
+				height: 75px;
+				border-radius: 7px;
+				border: none;
+				cursor: pointer;
+				display: flex;
+			}
+			#submitbutton {
+				position: absolute;
+				bottom: 50%;
+				left: 50%;
+				transform: translate(-33%, 1500%);
+			}
+		</style>
+		<script defer src="script.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<button onclick="button(5)">Test</button>
+			<button id="exit" onclick="button(0)">Zurück</button>
+
+			<div id="home">
+				<div id="buttonrow">
+					<button id="button" onclick="button(1)">Erdgas</button>
+					<button id="button" onclick="button(2)">Heizöl</button>
+					<button id="button" onclick="button(3)">Flüssiggas</button>
+					<button id="button" onclick="button(4)">Fernwärme</button>
+				</div>
+			</div>
+			<div id="inputrow">
+				<div id="error"></div>
+				<form id="form" action="/" method="post">
+					<div id="optional">
+						<div id="input_gui">
+							<label for="fernwaerme_input">Emission Fernwärmelieferant</label>
+							<input
+								type="number"
+								name="fernwaerme_input"
+								id="fernwaerme_input"
+								placeholder="Eingabe"
+								autocomplete="off"
+							/>
+						</div>
+					</div>
+					<div id="required">
+						<div id="input_gui">
+							<label for="flaeche_input">Fläche</label>
+							<input
+								type="number"
+								name="flaeche_input"
+								id="flaeche_input"
+								placeholder="Eingabe"
+								autocomplete="off"
+							/>
+						</div>
+						<div id="input_gui">
+							<label for="verbrauch_input">Verbrauch</label>
+							<input
+								type="number"
+								name="verbrauch_input"
+								id="verbrauch_input"
+								placeholder="Eingabe"
+								autocomplete="off"
+							/>
+						</div>
+					</div>
+					<button id="submitbutton" type="submit">Senden</button>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script>
+		function exit() {
+			endform();
+			showelement('buttonrow');
+		}
+		function hideelement(element) {
+			var x = document.getElementById(element);
+			x.style.display = 'none';
+		}
+		function showelement(element) {
+			var x = document.getElementById(element);
+			x.style.display = 'block';
+		}
+		function showflexelement(element) {
+			var x = document.getElementById(element);
+			x.style.display = 'flex';
+		}
+		function startform(id) {
+			hideelement('buttonrow');
+			if (id == 1) showflexelement('optional');
+			showflexelement('required');
+		}
+		function endform() {
+			hideelement('optional');
+			hideelement('required');
+		}
+		function test() {
+			console.log('test');
+			console.log(document.getElementById('optional').style.display);
+		}
+		async function button(id) {
+			switch (id) {
+				case 0:
+					exit();
+					break;
+				case 1:
+					startform(0);
+					break;
+				case 2:
+					startform(0);
+					break;
+				case 3:
+					startform(0);
+					break;
+				case 4:
+					startform(1);
+					break;
+				case 5:
+					test();
+					break;
+			}
+		}
+	</script>
+	<script defer>
+		// startform(1);
+	</script>
+</html>

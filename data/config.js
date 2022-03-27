@@ -1,10 +1,16 @@
 module.exports = {
     emissionfactors: {
-        gas: 0.18204,
-        oil: 2.6763,
-        liquidgas: 3.02991,
-        diesel: 2.6763,
-        petrol: 2.38489
+        gas: 18204e-5,
+        oil: 26763e-4,
+        liquidgas: 302991e-5,
+        diesel: 26763e-4,
+        petrol: 238489e-5
+    },
+    units: {
+        gas: "kWh",
+        oil: "l",
+        liquidgas: "kg",
+        distanceheat: "kWh",
     },
     co2_cost: {
         2020: 0,
